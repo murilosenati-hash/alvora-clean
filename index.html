@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alvora Clean | Excelência em Cada Detalhe</title>
+
+  <!-- Fonte Moderna Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* VARIÁVEIS E CORES OFICIAIS ALVORA CLEAN */
+
+    .logo-img-header {
+      height: 98px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    :root {
+      --bg-dark: #070908;
+      --bg-card: #0f1411;
+      --bg-card-hover: #151d18;
+      --accent-green: #74d100;
+      --accent-green-glow: rgba(116, 209, 0, 0.35);
+      --text-white: #ffffff;
+      --text-muted: #94a3b8;
+      --border-dark: #1b261e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Estrelas decorativas (Sparkles) */
+    .sparkle {
+      color: var(--accent-green);
+      font-size: 14px;
+      vertical-align: middle;
+      display: inline-block;
+      filter: drop-shadow(0 0 6px var(--accent-green));
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 80px;
+      /* Reduz de 18px para 10px em cima e embaixo */
+      background: rgba(7, 9, 8, 0.95);
+      border-bottom: 1px solid var(--border-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .logo-text span {
+      color: var(--accent-green);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-green);
+    }
+
+    .btn-nav {
+      background-color: var(--accent-green);
+      color: #041a02;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: 0 0 15px var(--accent-green-glow);
+      transition: all 0.2s;
+    }
+
+    .btn-nav:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(116, 209, 0, 0.6);
+    }
+
+    /* HERO SECTION COM CURVA ESTILO ARTE 2 E 5 */
+    .hero-section {
+      display: flex;
+      min-height: 85vh;
+      align-items: center;
+      position: relative;
+      padding: 40px 0 40px 60px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 580px;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
+      background: rgba(116, 209, 0, 0.08);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content h1 span {
+      color: var(--accent-green);
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 10px;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-green);
+      color: #061e02;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 0 20px var(--accent-green-glow);
+      transition: all 0.2s;
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(116, 209, 0, 0.7);
+    }
+
+    .hero-image-wrapper {
+      flex: 1.2;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 55%;
+      height: 100%;
+    }
+
+    /* Borda e máscara curva inspirada nas artes do Canva */
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: ellipse(85% 100% at 90% 50%);
+      border-left: 3px solid var(--accent-green);
+      filter: brightness(0.9);
+    }
+
+    /* SEÇÃO ANTES E DEPOIS INTERATIVO */
+    .section-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .section-title span {
+      color: var(--accent-green);
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    .slider-box {
+      position: relative;
+      width: 100%;
+      max-width: 850px;
+      height: 420px;
+      margin: 0 auto;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid var(--border-dark);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .img-comp {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .comp-before {
+      background-image: url('images/antes.jpg');
+      filter: grayscale(40%) contrast(110%);
+    }
+
+    .comp-after {
+      background-image: url('images/depois.jpg');
+      width: 50%;
+      border-right: 3px solid var(--accent-green);
+      filter: saturate(120%);
+    }
+
+    .slider-drag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+
+    .tag-badge {
+      position: absolute;
+      bottom: 20px;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+
+    .tag-before {
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+
+    .tag-after {
+      left: 20px;
+      background: var(--accent-green);
+      color: #000;
+    }
+
+    /* CARDS DE SERVIÇOS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: left;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .service-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-green);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px var(--accent-green-glow);
+    }
+
+    .card-photo {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* SEÇÃO DIFERENCIAIS (ESTILO POST 3) */
+    .diferenciais-wrap {
+      background: #090e0b;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 90px 20px;
+      position: relative;
+    }
+
+    .dif-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+
+    .dif-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .dif-box:hover {
+      border-color: var(--accent-green);
+      box-shadow: 0 5px 20px var(--accent-green-glow);
+    }
+
+    .dif-icon-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #0d160f;
+      border: 2px solid var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 30px;
+      box-shadow: 0 0 15px var(--accent-green-glow);
+    }
+
+    .dif-box h4 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .dif-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* SEÇÃO 3 HÁBITOS (ESTILO POST 4) */
+    .habits-container {
+      max-width: 800px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    .habit-item {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      padding: 22px 30px;
+      border-radius: 14px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .habit-item:hover {
+      border-color: var(--accent-green);
+    }
+
+    .habit-num {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent-green);
+      background: rgba(116, 209, 0, 0.1);
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--accent-green);
+    }
+
+    .habit-text h5 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .habit-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* FAQ ACCORDION */
+    .faq-wrapper {
+      max-width: 800px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    details {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      padding: 18px 24px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    details[open] {
+      border-color: var(--accent-green);
+      box-shadow: 0 4px 15px var(--accent-green-glow);
+    }
+
+    summary {
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      outline: none;
+    }
+
+    details p {
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* BANNER DE FECHAMENTO (ESTILO POST 5) */
+    .cta-banner {
+      background: linear-gradient(135deg, #09120b 0%, #030604 100%);
+      border: 2px solid var(--accent-green);
+      border-radius: 24px;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 0 35px var(--accent-green-glow);
+    }
+
+    .cta-banner h2 {
+      font-size: 38px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .floating-wpp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: white;
+      padding: 15px 24px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: none;
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.45);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      transition: transform 0.2s;
+    }
+
+    .floating-wpp:hover {
+      transform: scale(1.06);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-dark);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* RESPONSIVIDADE MOBILE */
+    @media (max-width: 900px) {
+      .hero-section {
+        padding: 60px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: 34px;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 320px;
+        margin-top: 30px;
+      }
+
+      .hero-image {
+        clip-path: none;
+        border-left: none;
+        border-radius: 16px;
+        border: 2px solid var(--accent-green);
+      }
+
+      .nav-links {
+        display: none;
+        /* No mobile prioriza o botão */
+      }
+
+      /* GRADE COMPACTA DE POSTS DO INSTAGRAM */
+      .insta-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        /* 5 posts lado a lado */
+        gap: 16px;
+        max-width: 1100px;
+        margin: 30px auto 0;
+        padding: 0 10px;
+      }
+
+      .insta-card-mini {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 4/5;
+        border: 1px solid var(--border-dark);
+        background: #000;
+        display: block;
+        transition: all 0.3s ease;
+        max-height: 260px;
+        /* Limita a altura para ficar pequeno */
+      }
+
+      .insta-card-mini img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+      }
+
+      .insta-card-mini:hover {
+        border-color: var(--accent-green);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px var(--accent-green-glow);
+      }
+
+      .insta-card-mini:hover img {
+        transform: scale(1.06);
+      }
+
+      .insta-mini-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(7, 9, 8, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .insta-mini-overlay span {
+        color: var(--accent-green);
+        font-size: 12px;
+        font-weight: 800;
+        border: 1px solid var(--accent-green);
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      .insta-card-mini:hover .insta-mini-overlay {
+        opacity: 1;
+      }
+
+      /* Ajuste para celular */
+      @media (max-width: 900px) {
+        .insta-mini-grid {
+          grid-template-columns: repeat(2, 1fr);
+          /* 2 por linha no celular */
+        }
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BARRA DE NAVEGAÇÃO -->
+  <nav>
+    <a href="#" class="logo-container">
+      <img src="logo.png" alt="Alvora Clean Logo" class="logo-img-header">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul>
+    <a href="https://wa.me/5511998765432?text=Olá!%20Vim%20pelo%20site%20da%20Alvora%20Clean%20e%20gostaria%20de%20um%20orçamento."
+      class="btn-nav" target="_blank">Agendar no WhatsApp</a>
+  </nav>
+
+  <!-- HERO SECTION (ESTILO POST 1 E 5) -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="sparkle">✦</span> Limpeza que transforma</div>
+      <h1>SEJA BEM-VINDO À <br><span>ALVORA CLEAN</span></h1>
+      <p class="hero-subtitle">Seu lar, nosso cuidado. Excelência em cada detalhe.</p>
+      <p class="hero-desc">Chegamos para transformar a sua rotina. Limpeza residencial, pós-obra e pós-mudança com
+        profissionais rigorosamente selecionados e total discrição.</p>
+      <a href="https://wa.me/5511998765432?text=Olá!%20Gostaria%20de%20um%20orçamento%20com%20a%20Alvora%20Clean."
+        class="btn-hero" target="_blank">
+        Solicitar Orçamento Grátis <span>➔</span>
+      </a>
+    </div>
+
+    <div class="hero-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+        alt="Casa Limpa e Moderna Alvora Clean" class="hero-image">
+    </div>
+  </section>
+
+  <!-- SLIDER ANTES E DEPOIS INTERATIVO -->
+  <section class="section-container" id="resultados">
+    <div class="hero-badge"><span class="sparkle">✦</span> Resultados Reais</div>
+    <h2 class="section-title">A Limpeza que <span>Transforma</span></h2>
+    <p class="section-sub">Arraste a barra para o lado e veja o padrão de acabamento da nossa equipe</p>
+
+    <div class="slider-box">
+      <div class="img-comp comp-before"></div>
+      <div class="img-comp comp-after" id="afterImg"></div>
+      <input type="range" min="0" max="100" value="50" class="slider-drag" id="dragInput">
+      <span class="tag-badge tag-after">DEPOIS (ALVORA)</span>
+      <span class="tag-badge tag-before">ANTES</span>
+    </div>
+  </section>
+
+  <!-- GRADE DOS 5 SERVIÇOS (ESTILO CARTÃO E POST 2) -->
+  <section class="section-container" id="servicos">
+    <div class="hero-badge"><span class="sparkle">✦</span> O que fazemos</div>
+    <h2 class="section-title">Nossos <span>Serviços</span> Especializados</h2>
+    <p class="section-sub">Soluções completas e sob medida para sua residência ou empresa</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80"
+          alt="Limpeza Residencial" class="card-photo">
+        <h3>✨ Limpeza Residencial</h3>
+        <p>Cuidado e manutenção contínua para manter seu ambiente familiar sempre higienizado, perfumado e acolhedor.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+          alt="Limpeza Profunda" class="card-photo">
+        <h3>🧼 Limpeza Profunda</h3>
+        <p>Higienização minuciosa em azulejos, cantos difíceis, armários e áreas com sujeira pesada acumulada.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80"
+          alt="Limpeza de Apartamentos" class="card-photo">
+        <h3>🏢 Limpeza de Apartamentos</h3>
+        <p>Serviço ágil e adaptado à rotina de condomínios e apartamentos, otimizando o espaço com máxima eficiência.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+          alt="Limpeza Pós-Mudança" class="card-photo">
+        <h3>📦 Limpeza Pós-Mudança</h3>
+        <p>Desinfecção completa para receber sua família no novo endereço ou entregar o imóvel antigo impecável.</p>
+      </div>
+
+      <div class="service-card" style="border-color: rgba(116, 209, 0, 0.4);">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"
+          alt="Limpeza Pós-Obra" class="card-photo">
+        <h3>🏗️ Limpeza Pós-Obra</h3>
+        <p><strong>Acabou a reforma?</strong> Remoção técnica de poeira fina, resíduos de gesso e respingos de tinta.
+          Seu imóvel 100% pronto para morar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS (ESTILO POST 3) -->
+  <section class="diferenciais-wrap" id="diferenciais">
+    <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+      <div class="hero-badge"><span class="sparkle">✦</span> Confiança Absoluta</div>
+      <h2 class="section-title">POR QUE ESCOLHER A <br><span>ALVORA CLEAN?</span></h2>
+      <p
+        style="color: var(--accent-green); font-weight: 700; letter-spacing: 2px; font-size: 13px; margin-bottom: 30px;">
+        <span class="sparkle">★</span> EXCELÊNCIA EM CADA DETALHE <span class="sparkle">★</span>
+      </p>
+
+      <div class="dif-grid">
+        <div class="dif-box">
+          <div class="dif-icon-circle">🛡️</div>
+          <h4>Profissionais Selecionados</h4>
+          <p>Equipe rigorosamente checada, treinada e orientada para agir com discrição e respeito absoluto ao seu lar.
+          </p>
+        </div>
+
+        <div class="dif-box">
+          <div class="dif-icon-circle">⏱️</div>
+          <h4>Pontualidade & Compromisso</h4>
+          <p>Cumprimento estrito de cronogramas e horários para você planejar seu dia sem imprevistos.</p>
+        </div>
+
+        <div class="dif-box">
+          <div class="dif-icon-circle">🏡</div>
+          <h4>Cuidado e Respeito</h4>
+          <p>Seu patrimônio tratado com zelo. Utilizamos técnicas e produtos adequados que preservam seus móveis e
+            pisos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 HÁBITOS DE CASA (ESTILO POST 4) -->
+  <section class="section-container">
+    <div class="hero-badge"><span class="sparkle">✦</span> Dica da Alvora</div>
+    <h2 class="section-title">3 Hábitos para Manter sua Casa <br><span>Cheirosa e Organizada</span></h2>
+    <p class="section-sub">Dicas simples para o seu dia a dia entre uma limpeza profissional e outra</p>
+
+    <div class="habits-container">
+      <div class="habit-item">
+        <div class="habit-num">01</div>
+        <div class="habit-text">
+          <h5>Ventilação Natural Diária</h5>
+          <p>Abra janelas por pelo menos 15 minutos pela manhã para renovar o ar e evitar umidade e ácaros.</p>
+        </div>
+      </div>
+
+      <div class="habit-item">
+        <div class="habit-num">02</div>
+        <div class="habit-text">
+          <h5>Bancadas da Cozinha Sempre Livres</h5>
+          <p>Guardar pequenos utensílios após o uso transmite uma sensação imediata de ordem em toda a casa.</p>
+        </div>
+      </div>
+
+      <div class="habit-item">
+        <div class="habit-num">03</div>
+        <div class="habit-text">
+          <h5>Aromatização Estratégica</h5>
+          <p>Difusores ou essências suaves em pontos de circulação garantem a sensação de frescor contínuo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÚVIDAS FREQUENTES (FAQ) -->
+  <section class="section-container" id="duvidas" style="padding-top: 20px;">
+    <h2 class="section-title">Dúvidas <span>Frequentes</span></h2>
+    <div class="faq-wrapper">
+      <details>
+        <summary>Como funciona o orçamento?</summary>
+        <p>É super rápido: você clica no botão de WhatsApp, nos conta o tipo de imóvel ou serviço desejado e passamos os
+          valores com total transparência e sem compromisso.</p>
+      </details>
+
+      <details>
+        <summary>Vocês levam os produtos e equipamentos?</summary>
+        <p>Para limpezas profundas e pós-obra, podemos levar maquinários e insumos específicos. Para manutenções
+          residenciais, alinhamos previamente de acordo com sua preferência.</p>
+      </details>
+
+      <details>
+        <summary>Quais regiões a Alvora Clean atende?</summary>
+        <p>Atendemos toda a região de Franco da Rocha, Francisco Morato, Jundiaí e cidades vizinhas com ampla
+          flexibilidade de datas.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- SEÇÃO INSTAGRAM (GRADE COMPACTA COM OS 5 POSTS) -->
+  <section class="section-container" id="instagram" style="padding-top: 20px;">
+    <div class="hero-badge"><span class="sparkle">✦</span> No Instagram</div>
+    <h2 class="section-title">Acompanhe <span>@alvoraclean</span></h2>
+    <p class="section-sub">Confira nossas postagens recentes no feed oficial</p>
+
+    <!-- GRADE TRAVADA COM TAMANHO PEQUENO (170px CADA) -->
+    <div
+      style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; max-width: 1000px; margin: 30px auto; padding: 0 10px;">
+
+      <a href="https://instagram.com/alvoraclean" target="_blank"
+        style="width: 170px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid #1b261e; display: block; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <img src="images/1.jpg" alt="Post 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+
+      <a href="https://instagram.com/alvoraclean" target="_blank"
+        style="width: 170px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid #1b261e; display: block; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <img src="images/2.jpg" alt="Post 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+
+      <a href="https://instagram.com/alvoraclean" target="_blank"
+        style="width: 170px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid #1b261e; display: block; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <img src="images/3.jpg" alt="Post 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+
+      <a href="https://instagram.com/alvoraclean" target="_blank"
+        style="width: 170px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid #1b261e; display: block; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <img src="images/4.jpg" alt="Post 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+
+      <a href="https://instagram.com/alvoraclean" target="_blank"
+        style="width: 170px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid #1b261e; display: block; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <img src="images/5.jpg" alt="Post 5" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+
+    </div>
+
+    <!-- Botão de Ação -->
+    <div style="margin-top: 35px;">
+      <a href="https://instagram.com/alvoraclean" target="_blank" class="btn-nav"
+        style="display: inline-block; padding: 12px 30px; font-size: 14px;">
+        Seguir @alvoraclean no Instagram ➔
+      </a>
+    </div>
+  </section>
+
+  <!-- BANNER FINAL DE CONVERSÃO (ESTILO POST 5) -->
+  <section style="padding: 0 20px;">
+    <div class="cta-banner">
+      <div class="hero-badge"><span class="sparkle">✦</span> Aproveite seu tempo</div>
+      <h2>CHEGOU O FIM DE SEMANA...<br><span style="color: var(--accent-green);">Descansar ou limpar a casa?</span></h2>
+      <p>O seu tempo livre é valioso demais. Deixe a faxina pesada com a equipe da Alvora Clean e aproveite seus dias
+        com quem você mais ama.</p>
+      <a href="https://wa.me/5511998765432?text=Olá!%20Gostaria%20de%20agendar%20uma%20limpeza%20com%20a%20Alvora%20Clean."
+        class="btn-hero" target="_blank" style="font-size: 18px; padding: 18px 45px;">
+        Agendar pelo WhatsApp 💬
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Alvora Clean — Todos os direitos reservados. Excelência em cada detalhe.</p>
+    <p style="margin-top: 8px;">
+      <a href="https://instagram.com/alvoraclean" target="_blank"
+        style="color: var(--accent-green); text-decoration: none; font-weight: 600;">
+        Instagram: @alvoraclean
+      </a>
+    </p>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5511998765432?text=Olá!%20Vim%20pelo%20site%20da%20Alvora%20Clean." class="floating-wpp"
+    target="_blank">
+    <span>💬</span> Falar no WhatsApp
+  </a>
+
+  <!-- SCRIPT DO SLIDER INTERATIVO -->
+  <script>
+    const dragInput = document.getElementById('dragInput');
+    const afterImg = document.getElementById('afterImg');
+
+    dragInput.addEventListener('input', function (e) {
+      afterImg.style.width = e.target.value + '%';
+    });
+  </script>
+
+</body>
+
+</html>
